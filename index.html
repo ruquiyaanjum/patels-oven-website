@@ -49,7 +49,7 @@ img{height:auto}
 :focus-visible{outline:2px solid var(--gold-bright);outline-offset:4px}
 ::selection{background:var(--gold);color:var(--ink)}
 .wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4.5vw,44px)}
-.band{position:relative;padding-block:clamp(80px,12vw,160px)}
+.band{position:relative;padding-block:clamp(64px,8vw,112px)}
 .linen{background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(255,255,255,.016) 0 1px,transparent 1px 3px)}
 .foil{background:var(--foil);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 7s linear infinite}
 @keyframes shine{to{background-position:-220% center}}
@@ -126,7 +126,7 @@ img{height:auto}
 [data-a="lines"] > span > i{font-style:inherit}
 
 /* a gold thread that draws itself between sections */
-.seam{display:flex;justify-content:center;height:clamp(110px,16vw,190px);margin-block:-1px}
+.seam{display:flex;justify-content:center;height:clamp(70px,9vw,110px);margin-block:-1px}
 .seam svg{height:100%;width:24px;overflow:visible}
 .draw{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:var(--off,0)}
 .js [data-draw]{--off:1}
@@ -181,42 +181,18 @@ img{height:auto}
 .slide p span{color:var(--gold);-webkit-text-stroke:0;font-style:normal;font-size:.4em;vertical-align:middle;padding-inline:.6em}
 .slide p:nth-child(2) span{color:var(--mute)}
 
-/* ---------- pinned anatomy ---------- */
-.anatomy{position:relative;padding-block:100px 60px;background:radial-gradient(70% 50% at 50% 50%,#11244c,var(--navy-deep) 70%)}
-.pin{display:flex;flex-direction:column;align-items:center;gap:40px;padding-inline:16px}
-.js .anatomy{height:440vh;padding:0}
-.js .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;padding:0}
-.js .pin-head{position:absolute}
-.pin-head{top:clamp(78px,11vh,120px);left:0;right:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;padding-inline:16px}
-.pin-head h2{font-size:clamp(1.9rem,4vw,3rem)}
-.dial{position:relative;width:min(50vh,74vw,520px);aspect-ratio:1;margin-top:6vh}
-.dial .plate{inset:0}
-.dial svg.track{position:absolute;inset:-7%;width:114%;height:114%;rotate:-90deg}
-.dial svg.track circle{fill:none;stroke-width:1.4}
-.dial .bg{stroke:var(--line)}
-.dial .fg{stroke:var(--gold);stroke-dasharray:1;stroke-dashoffset:var(--p-off,1)}
-.dial .spin{position:absolute;inset:6%;display:grid;place-items:center;transform:rotate(var(--rot,0deg)) scale(var(--sc,1))}
-.dial .spin img{width:100%;filter:drop-shadow(0 30px 26px rgba(0,0,0,.6))}
-.count{display:none}
-.js .count{display:block;position:absolute;right:clamp(16px,5vw,64px);bottom:clamp(90px,12vh,120px);font:italic 400 clamp(3rem,7vw,6rem)/1 var(--display);color:transparent;-webkit-text-stroke:1px var(--gold);font-variant-numeric:lining-nums}
-.count small{font-size:.35em;-webkit-text-stroke:0;color:var(--mute);font-style:normal;font-family:var(--caps);letter-spacing:.2em}
-.step{display:flex;flex-direction:column;gap:10px;max-width:420px}
-.js .step{position:absolute;top:50%;width:min(320px,30vw);opacity:0;transition:opacity .7s var(--ease),transform .9s var(--ease)}
-.js .step.l{left:clamp(16px,5vw,72px);transform:translate(-80px,-30%);align-items:flex-end;text-align:right}
-.js .step.r{right:clamp(16px,5vw,72px);transform:translate(80px,-30%)}
-.js .step.on{opacity:1;transform:translate(0,-30%)}
-.step .no{font:600 .72rem var(--caps);letter-spacing:.3em;color:var(--gold)}
-.step h3{font-size:var(--h3)}
-.step p{color:var(--mute);font-weight:300}
-.step i{display:block;height:1px;width:100%;background:linear-gradient(90deg,transparent,var(--gold))}
-.js .step i{transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) .2s}
-.js .step.l i{background:linear-gradient(90deg,var(--gold),transparent);transform-origin:right}
-.js .step.on i{transform:scaleX(1)}
-
+/* ---------- four steps ---------- */
+.steps{background:radial-gradient(70% 60% at 50% 30%,#11244c,var(--navy-deep) 70%)}
+.steps h2{font-size:var(--h2)}
+.howto{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px);margin-top:clamp(40px,5vw,64px)}
+.howto li{position:relative;display:flex;flex-direction:column;gap:10px;padding:26px 22px 28px;border-top:1px solid var(--gold);background:linear-gradient(180deg,rgba(217,183,111,.08),transparent 70%);min-width:0}
+.howto .no{font:italic 400 3.4rem/1 var(--display);color:transparent;-webkit-text-stroke:1px var(--gold);font-variant-numeric:lining-nums}
+.howto h3{font-size:1.7rem}
+.howto p{color:var(--mute);font-weight:300;font-size:.98rem}
 /* ---------- menu ---------- */
 .menu{background:radial-gradient(80% 50% at 50% 0%,#11244c,var(--navy-deep) 60%)}
 .menu h2{font-size:var(--h2)}
-.sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.4vw,28px);margin-top:clamp(48px,7vw,90px)}
+.sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.4vw,28px);margin-top:clamp(40px,5vw,64px)}
 .size{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:clamp(24px,3vw,40px) 20px 34px;
   background:linear-gradient(170deg,rgba(26,51,100,.6),rgba(10,21,48,.3));border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);transition:border-color .4s,translate .5s var(--ease)}
 .size:hover{border-color:var(--gold-bright);translate:0 -8px}
@@ -285,7 +261,7 @@ img{height:auto}
 .stats li + li{border-left:1px solid var(--line)}
 .stats b{font:italic 400 clamp(2.6rem,6vw,4.6rem)/1 var(--display);font-variant-numeric:lining-nums tabular-nums}
 .stats span{font:600 .64rem var(--caps);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.tl{position:relative;display:flex;flex-direction:column;gap:clamp(60px,9vw,120px);margin-top:clamp(56px,8vw,100px);padding-block:20px}
+.tl{position:relative;display:flex;flex-direction:column;gap:clamp(40px,6vw,72px);margin-top:clamp(40px,6vw,72px);padding-block:20px}
 .tl > svg{position:absolute;left:50%;top:0;height:100%;width:2px;translate:-50% 0;overflow:visible}
 .tl > svg .base{stroke:var(--line);stroke-width:1.2}
 .tl li{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,8vw,110px)}
@@ -319,16 +295,11 @@ footer .fine{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;col
   .stage{max-width:340px;order:-1;margin-top:8px}
   .s-hero .arch{max-width:300px}
   .nav .link{display:none}
+  .howto{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sizes{grid-template-columns:minmax(0,1fr);max-width:420px;margin-inline:auto}
   .trio{grid-template-columns:minmax(0,1fr)}
   .trio li + li{border-left:0;border-top:1px solid color-mix(in srgb,var(--gold-deep) 45%,transparent)}
   .details > div{grid-template-columns:minmax(0,1fr);gap:6px}
-  .js .step{width:auto;left:16px!important;right:16px!important;top:auto;bottom:clamp(84px,12vh,120px);align-items:center!important;text-align:center!important;transform:translateY(50px)!important}
-  .js .step.on{transform:none!important}
-  .step h3{font-size:1.8rem}
-  .step p{font-size:.95rem}
-  .js .dial{width:min(42vh,78vw);margin-top:-4vh}
-  .js .count{top:clamp(150px,22vh,190px);bottom:auto;font-size:2.6rem}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .stats li:nth-child(3){border-left:0}
   .stats li:nth-child(n+3){border-top:1px solid var(--line)}
@@ -346,6 +317,9 @@ footer .fine{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;col
   footer{padding-bottom:110px}
 }
 @media (max-width:430px){
+  .howto{grid-template-columns:minmax(0,1fr)}
+  .howto li{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:16px}
+  .howto p{flex-basis:100%}
   .brand img{width:42px;height:42px}
   .brand b{font-size:.82rem;letter-spacing:.08em}
   .brand small{font-size:.52rem;letter-spacing:.3em}
@@ -422,23 +396,19 @@ body:not([data-page="story"]) #page-home,body[data-page="story"] #page-story{dis
     <p data-slide="-.35" style="margin-left:-60vw">Dil se <span>◆</span> Made by hand <span>◆</span> Electronic City <span>◆</span> Dil se <span>◆</span> Made by hand</p>
   </div>
 
-  <!-- 3. Pinned: how one cake is built, layer by layer -->
-  <section class="anatomy" aria-labelledby="ana-h">
-    <div class="pin">
-      <div class="pin-head">
-        <p class="eyebrow both">Inside every slice</p>
-        <h2 id="ana-h">Four steps, <em class="foil">one dessert.</em></h2>
+  <!-- 3. How one dessert is made: four steps arrive one after another -->
+  <section class="steps band" aria-labelledby="ana-h">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow both" data-a="down">Inside every slice</p>
+        <h2 id="ana-h" data-a="lines"><span>Four steps,</span><span><em class="foil">one dessert.</em></span></h2>
       </div>
-      <div class="dial">
-        <svg class="track" viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="48"/><circle class="fg" cx="50" cy="50" r="48" pathLength="1"/></svg>
-        <div class="plate"></div>
-        <div class="spin"><img data-img="cake" width="1000" height="1080" alt=""></div>
-      </div>
-      <p class="count" aria-hidden="true"><b>01</b><small> / 04</small></p>
-      <div class="step l"><span class="no">Step 01</span><h3>The sponge</h3><p>A light, airy sponge, baked fresh in our oven in Electronic City.</p><i></i></div>
-      <div class="step r"><span class="no">Step 02</span><h3>The soak</h3><p>Tres leches means "three milks". The sponge drinks in the milk and the rasmalai flavour until every bite is soft.</p><i></i></div>
-      <div class="step l"><span class="no">Step 03</span><h3>The cream</h3><p>Malai cream, smoothed on and piped into rosettes by hand.</p><i></i></div>
-      <div class="step r"><span class="no">Step 04</span><h3>The finish</h3><p>Chopped pistachio and dried rose petals, placed one by one.</p><i></i></div>
+      <ol class="howto" data-stagger>
+        <li data-a="left"><span class="no">01</span><h3>The sponge</h3><p>A light, airy sponge, baked fresh in our oven.</p></li>
+        <li data-a="down"><span class="no">02</span><h3>The soak</h3><p>Tres leches means "three milks". The sponge drinks them in, with the taste of rasmalai.</p></li>
+        <li data-a="up"><span class="no">03</span><h3>The cream</h3><p>Malai cream, smoothed on and piped into rosettes by hand.</p></li>
+        <li data-a="right"><span class="no">04</span><h3>The finish</h3><p>Chopped pistachio and dried rose petals, placed one by one.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -725,7 +695,6 @@ body:not([data-page="story"]) #page-home,body[data-page="story"] #page-story{dis
   var draws = $$('[data-draw]'), pars = $$('[data-par]'), slides = $$('[data-slide]'), outs = $$('[data-out]');
   var docks = $$('.dock a[href^="#"]').length > 1 ? $$('.dock a[href^="#"]') : [];
   var tls = $$('.tl'), quotes = $$('[data-words]');
-  var ana = document.querySelector('.anatomy'), steps = ana ? $$('.step', ana) : [], countEl = ana && ana.querySelector('.count b');
 
   quotes.forEach(function(q){
     $$('*', q).concat([q]).forEach(function(el){
@@ -767,16 +736,6 @@ body:not([data-page="story"]) #page-home,body[data-page="story"] #page-story{dis
       el.style.opacity = (1 - f * 1.1).toFixed(3);
       el.style.translate = '0 ' + (f * -60).toFixed(1) + 'px';
     });
-
-    if (ana) {
-      var ar = ana.getBoundingClientRect(), p = clamp(-ar.top / (ar.height - vh));
-      ana.style.setProperty('--rot', (p * -120).toFixed(2) + 'deg');
-      ana.style.setProperty('--sc', (.82 + p * .22).toFixed(3));
-      ana.style.setProperty('--p-off', (1 - p).toFixed(4));
-      var n = ar.top > vh * .3 ? -1 : Math.min(steps.length - 1, Math.floor(p * steps.length * .999));
-      steps.forEach(function(s, i){ s.classList.toggle('on', i === n); });
-      if (countEl) countEl.textContent = '0' + Math.max(1, n + 1);
-    }
 
     tls.forEach(function(tl){
       var r = tl.getBoundingClientRect(), lineY = vh * .6 - r.top;
